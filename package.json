@@ -7,7 +7,8 @@
   "description": "Biblioteca desenvolvida em TypeScript independente de estruturas especificas para funcionar, em outras palavras é uma biblioteca compatível com Angular, React ou Node.",
   "author": "Phelipe Matos (PHMATOS07)",
   "scripts": {
-    "build": "nx build helpers"
+    "build": "nx build helpers",
+    "build:watch": "nx build helpers --watch"
   },
   "dependencies": {
     "tslib": "^2.3.0"
