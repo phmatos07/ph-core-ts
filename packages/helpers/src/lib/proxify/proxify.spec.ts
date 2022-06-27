@@ -1,45 +1,48 @@
 import { Proxify } from './proxify';
 
-test('Class Proxify.proxy deve obter o retorno até level02 do ObjetoMock', () => {
+describe('Proxify', () => {
 
-  type ObjectType = {
-    level01: {
-      level02: {
-        value: boolean;
-      };
-    }
-  };
+  test('Class Proxify.proxy deve obter o retorno até level02 do ObjetoMock', () => {
 
-  const objectMock: ObjectType = {
-    level01: {
-      level02: {
-        value: true
+    type ObjectType = {
+      level01: {
+        level02: {
+          value: boolean;
+        };
       }
-    }
-  };
+    };
 
-  const value = Proxify.proxy(objectMock, 'level01.level02');
-  expect(value).toBe(objectMock.level01.level02);
-});
-
-test('Class Proxify.proxy deve obter o retorno igual TRUE do ObjetoMock', () => {
-
-  type ObjectType = {
-    level01: {
-      level02: {
-        value: boolean;
-      };
-    }
-  };
-
-  const objectMock: ObjectType = {
-    level01: {
-      level02: {
-        value: true
+    const objectMock: ObjectType = {
+      level01: {
+        level02: {
+          value: true
+        }
       }
-    }
-  };
+    };
 
-  const value = Proxify.proxy<boolean>(objectMock, 'level01.level02.value');
-  expect(value).toEqual(true);
+    const value = Proxify.proxy(objectMock, 'level01.level02');
+    expect(value).toBe(objectMock.level01.level02);
+  });
+
+  it('Class Proxify.proxy deve obter o retorno igual TRUE do ObjetoMock', () => {
+
+    type ObjectType = {
+      level01: {
+        level02: {
+          value: boolean;
+        };
+      }
+    };
+
+    const objectMock: ObjectType = {
+      level01: {
+        level02: {
+          value: true
+        }
+      }
+    };
+
+    const value = Proxify.proxy<boolean>(objectMock, 'level01.level02.value');
+    expect(value).toEqual(true);
+  });
 });
