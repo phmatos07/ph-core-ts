@@ -8,6 +8,7 @@
   "author": "Phelipe Matos (PHMATOS07)",
   "scripts": {
     "lint": "nx lint helpers",
+    "test": "jest",
     "build": "nx build helpers",
     "build:watch": "nx build helpers --watch"
   },
